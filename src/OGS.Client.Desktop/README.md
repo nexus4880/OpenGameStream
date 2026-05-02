@@ -1,20 +1,19 @@
 # OGS.Client.Desktop (Raylib)
 
-This project is a desktop-first client shell intended to replace browser-based input capture.
+Native desktop client intended to replace browser-driven input capture.
 
-## Current scope
+## Implemented web-client parity (setup flow)
 
-- Fullscreen-native desktop window via Raylib.
-- Setup screen requiring a dedicated configurable **exit key** (F1-F4).
-- Runtime input capture toggle using only the configured exit key.
-- Keyboard, mouse movement, mouse buttons, and mouse wheel are encoded according to the same command schema as the existing web client (`RtcCommandType`).
-- A transport abstraction (`IRemoteCommandTransport`) is provided for wiring into WebRTC/data-channel signaling.
+- Dedicated configurable exit key selected before connect (F1-F4).
+- Invite ingestion flow mirrored from web client:
+  - paste invite code from clipboard (`CTRL+V`),
+  - decode Base64 JSON invite payload,
+  - show invite info screen,
+  - confirm to enter session state.
+- Session capture behavior with a single reserved key (the configured exit key), while all other keyboard and mouse input is forwarded to the host transport.
 
-## Remaining integration work
+## Remaining work
 
-- Implement an `IRemoteCommandTransport` backed by the OGS RTC command channel.
-- Render host video frames in-window.
-- Add gamepad forwarding parity with the web client.
-- Add host connection UI (manual invite + MQTT invite flow).
-
-This staged approach removes browser shortcut limitations immediately at the architecture level while keeping protocol compatibility.
+- Hook `InviteData` flows to actual RTC signaling/media client implementation (ManualRtc + MQTT paths).
+- Implement gamepad forwarding parity.
+- Render remote video/audio stream.
