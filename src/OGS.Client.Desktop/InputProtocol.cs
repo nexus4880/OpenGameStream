@@ -29,11 +29,11 @@ public static class InputProtocol
 {
     public static MouseButtonCommand MouseButtonFromRaylib(MouseButton button) => button switch
     {
-        MouseButton.MouseButtonLeft => MouseButtonCommand.Left,
-        MouseButton.MouseButtonRight => MouseButtonCommand.Right,
-        MouseButton.MouseButtonMiddle => MouseButtonCommand.Middle,
-        MouseButton.MouseButtonSide => MouseButtonCommand.X1,
-        MouseButton.MouseButtonExtra => MouseButtonCommand.X2,
+        MouseButton.Left => MouseButtonCommand.Left,
+        MouseButton.Right => MouseButtonCommand.Right,
+        MouseButton.Middle => MouseButtonCommand.Middle,
+        MouseButton.Side => MouseButtonCommand.X1,
+        MouseButton.Extra => MouseButtonCommand.X2,
         _ => MouseButtonCommand.None,
     };
 }

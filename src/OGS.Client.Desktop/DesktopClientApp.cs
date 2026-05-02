@@ -53,12 +53,12 @@ public sealed class DesktopClientApp
         if (delta.X != 0 || delta.Y != 0)
             _transport.SendMouseMove((short)delta.X, (short)delta.Y);
 
-        if (Raylib.IsMouseButtonPressed(MouseButton.MouseButtonLeft)) _transport.SendMouseButton(MouseButtonCommand.Left, true);
-        if (Raylib.IsMouseButtonReleased(MouseButton.MouseButtonLeft)) _transport.SendMouseButton(MouseButtonCommand.Left, false);
-        if (Raylib.IsMouseButtonPressed(MouseButton.MouseButtonRight)) _transport.SendMouseButton(MouseButtonCommand.Right, true);
-        if (Raylib.IsMouseButtonReleased(MouseButton.MouseButtonRight)) _transport.SendMouseButton(MouseButtonCommand.Right, false);
-        if (Raylib.IsMouseButtonPressed(MouseButton.MouseButtonMiddle)) _transport.SendMouseButton(MouseButtonCommand.Middle, true);
-        if (Raylib.IsMouseButtonReleased(MouseButton.MouseButtonMiddle)) _transport.SendMouseButton(MouseButtonCommand.Middle, false);
+        if (Raylib.IsMouseButtonPressed(MouseButton.Left)) _transport.SendMouseButton(MouseButtonCommand.Left, true);
+        if (Raylib.IsMouseButtonReleased(MouseButton.Left)) _transport.SendMouseButton(MouseButtonCommand.Left, false);
+        if (Raylib.IsMouseButtonPressed(MouseButton.Right)) _transport.SendMouseButton(MouseButtonCommand.Right, true);
+        if (Raylib.IsMouseButtonReleased(MouseButton.Right)) _transport.SendMouseButton(MouseButtonCommand.Right, false);
+        if (Raylib.IsMouseButtonPressed(MouseButton.Middle)) _transport.SendMouseButton(MouseButtonCommand.Middle, true);
+        if (Raylib.IsMouseButtonReleased(MouseButton.Middle)) _transport.SendMouseButton(MouseButtonCommand.Middle, false);
 
         int wheel = (int)Raylib.GetMouseWheelMove();
         if (wheel > 0) _transport.SendMouseScroll(ScrollDirection.Up);
