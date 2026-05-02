@@ -9,9 +9,6 @@ namespace OGS.Client.Desktop;
 [JsonDerivedType(typeof(MqttRtcInviteData), typeDiscriminator: "MQTT")]
 public abstract class InviteData
 {
-    [JsonPropertyName("$type")]
-    public string Type { get; set; } = string.Empty;
-
     public static InviteData Parse(string inviteCode)
     {
         byte[] decoded = Convert.FromBase64String(inviteCode);
