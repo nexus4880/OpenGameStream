@@ -64,7 +64,7 @@ public sealed class DesktopClientApp
         if (wheel > 0) _transport.SendMouseScroll(ScrollDirection.Up);
         if (wheel < 0) _transport.SendMouseScroll(ScrollDirection.Down);
 
-        for (int key = (int)KeyboardKey.Null; key < (int)KeyboardKey.KbMenu; key++)
+        for (int key = (int)KeyboardKey.Null; key < (int)KeyboardKey.KeyboardMenu; key++)
         {
             if (key == (int)exitKey)
                 continue;
@@ -159,7 +159,7 @@ public sealed class DesktopClientApp
     {
         try
         {
-            string raw = Raylib.GetClipboardText();
+            string raw = Raylib.GetClipboardText_();
             _invite = InviteData.Parse(raw.Trim());
             _error = null;
         }
